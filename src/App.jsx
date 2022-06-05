@@ -11,7 +11,7 @@ const AppContainer = styled.div`
   flex-direction: column;
 
   width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
 
   align-items: center;
 
