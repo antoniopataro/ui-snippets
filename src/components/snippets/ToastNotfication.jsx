@@ -12,24 +12,20 @@ const ToastNotificationContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  gap: 25px;
-  padding: 25px 25px;
+  gap: 20px;
+  padding: 16px 24px;
 
-  border-radius: 10px;
+  border-radius: 4px;
 
   background: #1c1c1c;
 
   button {
-    display: grid;
-    place-items: center;
-
-    height: 32px;
-
-    padding: 0 12px;
+    padding: 8px 12px;
 
     border: none;
-    border-radius: 4px;
     outline: none;
+
+    border-radius: 4px;
 
     cursor: pointer;
 
@@ -49,15 +45,15 @@ const ToastNotificationContainer = styled.div`
 `;
 
 const Toast = styled.div`
-  position: absolute;
+  position: fixed;
 
   display: flex;
   flex-direction: row;
 
   z-index: 1;
 
-  bottom: 0;
-  right: 0;
+  bottom: 20px;
+  right: 20px;
 
   width: 300px;
   height: 75px;
@@ -65,10 +61,9 @@ const Toast = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  margin: 30px;
   padding: 30px;
 
-  border-radius: 10px;
+  border-radius: 4px;
 
   color: white;
   background: hsl(0deg 0% 2%);
@@ -92,7 +87,7 @@ function ToastNotification() {
 
     setTimeout(() => {
       setNewToast(false);
-    }, 5000);
+    }, 2500);
   };
 
   const toastStyles = {};
@@ -110,11 +105,8 @@ function ToastNotification() {
   return (
     <>
       <ToastNotificationContainer>
-        <button onClick={() => handleToast("This is a Toast.")}>
-          Click Here!
-        </button>
-        <button onClick={() => handleToast("This is also a Toast.")}>
-          And Here!
+        <button onClick={() => handleToast("Indeed.")}>
+          This opens a Toast.
         </button>
       </ToastNotificationContainer>
       <Toast style={toastStyles}>{toastContent}</Toast>

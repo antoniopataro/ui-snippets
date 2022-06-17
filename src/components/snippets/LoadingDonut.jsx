@@ -5,11 +5,12 @@ const LoadingDonutContainer = styled.div`
   place-items: center;
 
   width: fit-content;
+  min-width: 100px;
   height: 100px;
 
-  padding: 25px 25px;
+  padding: 16px 24px;
 
-  border-radius: 10px;
+  border-radius: 4px;
 
   background: #1c1c1c;
 

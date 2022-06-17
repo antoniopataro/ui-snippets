@@ -3,17 +3,20 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 
 const HoverHighlightContainer = styled.div`
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: row;
 
   width: fit-content;
   height: 100px;
 
-  padding: 25px 25px;
+  align-items: center;
 
-  border-radius: 10px;
+  gap: 20px;
+  padding: 16px 24px;
 
-  background: #1c1c1c;
+  border-radius: 4px;
+
+  background-color: #1c1c1c;
 
   #nav-wrapper {
     position: relative;
@@ -44,7 +47,7 @@ const HoverHighlightContainer = styled.div`
     transition-property: width, transform, opacity;
   }
 
-  .item {
+  a {
     position: relative;
 
     display: inline-block;
@@ -65,25 +68,6 @@ const HoverHighlightContainer = styled.div`
     }
   }
 `;
-
-const itemsData = [
-  {
-    title: "Home",
-    value: "home",
-  },
-  {
-    title: "About Me",
-    value: "aboutme",
-  },
-  {
-    title: "Portfolio",
-    value: "portfolio",
-  },
-  {
-    title: "Contact",
-    value: "contact",
-  },
-];
 
 function HoverHighlight() {
   const [itemBoundingBox, setItemBoundingBox] = useState(null);
@@ -118,16 +102,8 @@ function HoverHighlight() {
     <HoverHighlightContainer>
       <div ref={wrapperRef} onMouseLeave={resetHighlight} id="nav-wrapper">
         <div id="highlight" ref={highlightRef} style={highlightStyles}></div>
-        {itemsData.map((item) => (
-          <a
-            href=""
-            onMouseOver={(e) => positionHighlight(e, item)}
-            className="item"
-            key={item.value}
-          >
-            {item.title}
-          </a>
-        ))}
+        <a onMouseOver={(e) => positionHighlight(e, e.target)}>Home</a>
+        <a onMouseOver={(e) => positionHighlight(e, e.target)}>About</a>
       </div>
     </HoverHighlightContainer>
   );

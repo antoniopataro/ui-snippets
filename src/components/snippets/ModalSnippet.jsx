@@ -6,28 +6,24 @@ const ModalSnippetContainer = styled.div`
   display: grid;
   place-items: center;
 
-  z-index: 10;
+  z-index: 1;
 
   width: fit-content;
   height: 100px;
 
-  padding: 25px 25px;
+  padding: 16px 24px;
 
-  border-radius: 10px;
+  border-radius: 4px;
 
   background: #1c1c1c;
 
   button {
-    display: grid;
-    place-items: center;
-
-    height: 32px;
-
-    padding: 0 12px;
+    padding: 8px 12px;
 
     border: none;
-    border-radius: 4px;
     outline: none;
+
+    border-radius: 4px;
 
     cursor: pointer;
 
@@ -47,7 +43,12 @@ const ModalSnippetContainer = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  position: absolute;
+  position: fixed;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
 
   pointer-events: none;
 
@@ -69,15 +70,9 @@ const ModalContainer = styled.div`
 `;
 
 const Modal = styled.div`
-  position: absolute;
+  position: relative;
 
   display: flex;
-
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
 
   width: 600px;
   height: 400px;
@@ -111,7 +106,9 @@ function ModalSnippet() {
 
   return (
     <ModalSnippetContainer>
-      <button onClick={() => setShowModal(true)}>I am a Modal.</button>
+      <button onClick={() => setShowModal(true)}>
+        This will open a Modal.
+      </button>
       <ModalContainer style={modalContainerStyles}>
         <Modal style={modalStyles}>
           <button onClick={() => setShowModal(false)}>Close</button>
